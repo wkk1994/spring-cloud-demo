@@ -1,0 +1,19 @@
+server:
+  port: 8076
+spring:
+  jpa:
+    generate-ddl: false #是否生成ddl语句
+    show-sql: true  #是否显示sql语句
+    hibernate:
+      ddl-auto: none
+  datasource:
+    platform: h2
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch: DEBUG

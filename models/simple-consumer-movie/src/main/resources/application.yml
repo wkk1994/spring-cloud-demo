@@ -1,0 +1,4 @@
+server:
+  port: 8077
+user:
+  userServicePath: http://localhost:8076/user/
