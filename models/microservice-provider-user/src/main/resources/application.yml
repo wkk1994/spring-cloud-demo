@@ -1,6 +1,8 @@
 server:
   port: 8076
 spring:
+  application:
+    name: microservice-provider-user
   jpa:
     generate-ddl: false #是否生成ddl语句
     show-sql: true  #是否显示sql语句
@@ -17,3 +19,12 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch: DEBUG
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8079/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}

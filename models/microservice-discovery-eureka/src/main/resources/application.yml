@@ -1,8 +1,17 @@
 server:
   port: 8079
+spring:
+  application:
+    name: microservice-provider-movie
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8079/eureka
+      defaultZone: http://user:123456@localhost:8079/eureka
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: 123456
