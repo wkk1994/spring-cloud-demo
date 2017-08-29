@@ -1,8 +1,8 @@
 server:
-  port: 8076
+  port: 8072
 spring:
   application:
-    name: microservice-provider-user
+    name: microservice-provider-user2
   jpa:
     generate-ddl: false #是否生成ddl语句
     show-sql: true  #是否显示sql语句

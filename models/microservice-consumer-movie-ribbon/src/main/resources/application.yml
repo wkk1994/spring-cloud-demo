@@ -1,0 +1,17 @@
+server:
+  port: 8077
+user:
+  userServicePath: http://localhost:8076/user/
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8079/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+spring:
+  application:
+    name: microservice-consumer-movice-ribbon
+
