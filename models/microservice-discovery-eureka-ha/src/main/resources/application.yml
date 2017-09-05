@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: eureka-ha
+---
+server:
+  port: 8079
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    service-url:
+      defaultZone: http://peer2:8080/eureka,http://peer3:8081/eureka
+spring:
+  profiles: peer1
+---
+server:
+  port: 8080
+eureka:
+  instance:
+      hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer1:8079/eureka,http://peer3:8081/eureka
+spring:
+  profiles: peer2
+---
+server:
+  port: 8081
+eureka:
+  instance:
+      hostname: peer3
+  client:
+    service-url:
+      defaultZone: http://peer1:8079/eureka,http://peer2:8080/eureka
+spring:
+  profiles: peer3
