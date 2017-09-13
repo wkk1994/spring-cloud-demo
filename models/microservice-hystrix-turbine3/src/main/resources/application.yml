@@ -1,0 +1,23 @@
+ management: # spring-boot-starter-acturator
+   port: 8201
+ server:
+  port: 8200
+ spring:
+   application:
+     name: microservice-hystrix-turbine3
+ eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8079/eureka
+  instance:
+    prefer-ip-address: true
+ turbine:
+   aggregator:
+     clusterConfig: MICROSERVICE-CONSUMER-MOVIE-RIBBON-HYSTRIX3
+   appConfig: microservice-consumer-movie-ribbon-hystrix3
+   #clusterNameExpression: "'default'"
+ #turbine.instanceUrlSuffix.MICROSERVICE-CONSUMER-MOVIE-RIBBON-HYSTRIX2: /ribbon/hystrix.stream
+ logging:
+   level:
+     root: INFO
+     com.netflix.turbine.monitor: DEBUG
